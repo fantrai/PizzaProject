@@ -32936,11 +32936,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fantrai\\Desktop\\MAUI\\Pizza\\Pizza.csproj",
+      "projectUniqueName": "C:\\Users\\fantrai\\Desktop\\MAUI\\Pizza\\PizzaProject\\Pizza.csproj",
       "projectName": "Pizza",
-      "projectPath": "C:\\Users\\fantrai\\Desktop\\MAUI\\Pizza\\Pizza.csproj",
+      "projectPath": "C:\\Users\\fantrai\\Desktop\\MAUI\\Pizza\\PizzaProject\\Pizza.csproj",
       "packagesPath": "C:\\Users\\fantrai\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fantrai\\Desktop\\MAUI\\Pizza\\obj\\",
+      "outputPath": "C:\\Users\\fantrai\\Desktop\\MAUI\\Pizza\\PizzaProject\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [

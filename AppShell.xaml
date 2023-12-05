@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Pizza.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Pizza"
+    Shell.FlyoutBehavior="Disabled"
+    Title="Pizza"
+    Shell.BackgroundColor="#35916A"
+    Shell.TabBarBackgroundColor="#35916A"
+    Shell.TabBarForegroundColor="Black"
+    Shell.TabBarTitleColor="Black">
+
+    <Shell.TitleView>
+        <HorizontalStackLayout>
+            <Label Text="Время пиццы" FontFamily="BadScript" TextColor="White" VerticalOptions="Center" Margin="10, 0, 0 , 0" FontSize="24"/>
+            <Image Source="piicw" Margin="12"/>
+        </HorizontalStackLayout>
+    </Shell.TitleView>
+
+    <TabBar>
+        <Tab Title="Меню" Icon="piic">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
+        </Tab>
+        <Tab Title="Профиль" Icon="ava">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
+        </Tab>
+        <Tab Title="Карта" Icon="map">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
+        </Tab>
+        <Tab Title="Корзина" Icon="cart">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
+        </Tab>
+    </TabBar>
+</Shell>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <BundleResource Include="C:\Users\fantrai\Desktop\MAUI\Pizza\PizzaProject\obj\Release\net8.0-maccatalyst\resizetizer\r\Resources\pizza3.png" />
+    <BundleResource Include="C:\Users\fantrai\Desktop\MAUI\Pizza\PizzaProject\obj\Release\net8.0-maccatalyst\resizetizer\r\Resources\ava.png" />
+    <BundleResource Include="C:\Users\fantrai\Desktop\MAUI\Pizza\PizzaProject\obj\Release\net8.0-maccatalyst\resizetizer\r\Resources\sendcart.png" />
+    <BundleResource Include="C:\Users\fantrai\Desktop\MAUI\Pizza\PizzaProject\obj\Release\net8.0-maccatalyst\resizetizer\r\Resources\dotnet_bot.png" />
+    <BundleResource Include="C:\Users\fantrai\Desktop\MAUI\Pizza\PizzaProject\obj\Release\net8.0-maccatalyst\resizetizer\r\Resources\vkico.png" />
+    <BundleResource Include="C:\Users\fantrai\Desktop\MAUI\Pizza\PizzaProject\obj\Release\net8.0-maccatalyst\resizetizer\r\Resources\arrdown.png" />
+    <BundleResource Include="C:\Users\fantrai\Desktop\MAUI\Pizza\PizzaProject\obj\Release\net8.0-maccatalyst\resizetizer\r\Resources\cartw.png" />
+    <BundleResource Include="C:\Users\fantrai\Desktop\MAUI\Pizza\PizzaProject\obj\Release\net8.0-maccatalyst\resizetizer\r\Resources\cart.png" />
+    <BundleResource Include="C:\Users\fantrai\Desktop\MAUI\Pizza\PizzaProject\obj\Release\net8.0-maccatalyst\resizetizer\r\Resources\pizza.png" />
+    <BundleResource Include="C:\Users\fantrai\Desktop\MAUI\Pizza\PizzaProject\obj\Release\net8.0-maccatalyst\resizetizer\r\Resources\piicw.png" />
+    <BundleResource Include="C:\Users\fantrai\Desktop\MAUI\Pizza\PizzaProject\obj\Release\net8.0-maccatalyst\resizetizer\r\Resources\instico.png" />
+    <BundleResource Include="C:\Users\fantrai\Desktop\MAUI\Pizza\PizzaProject\obj\Release\net8.0-maccatalyst\resizetizer\r\Resources\map.png" />
+    <BundleResource Include="C:\Users\fantrai\Desktop\MAUI\Pizza\PizzaProject\obj\Release\net8.0-maccatalyst\resizetizer\r\Resources\pizza2.png" />
+    <BundleResource Include="C:\Users\fantrai\Desktop\MAUI\Pizza\PizzaProject\obj\Release\net8.0-maccatalyst\resizetizer\r\Resources\bgr1.png" />
+    <BundleResource Include="C:\Users\fantrai\Desktop\MAUI\Pizza\PizzaProject\obj\Release\net8.0-maccatalyst\resizetizer\r\Resources\piic.png" />
+    <BundleResource Include="obj\Release\net8.0-maccatalyst\resizetizer\f\BadScript.ttf" />
+    <BundleResource Include="obj\Release\net8.0-maccatalyst\resizetizer\f\Caveat-Regular.ttf" />
+    <BundleResource Include="obj\Release\net8.0-maccatalyst\resizetizer\f\Inter-Regular.ttf" />
+    <BundleResource Include="obj\Release\net8.0-maccatalyst\resizetizer\f\OpenSans-Regular.ttf" />
+    <BundleResource Include="obj\Release\net8.0-maccatalyst\resizetizer\f\OpenSans-Semibold.ttf" />
+  </ItemGroup>
+</Project>

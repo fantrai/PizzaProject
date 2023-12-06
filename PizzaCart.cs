@@ -1,5 +1,4 @@
-﻿using Android.Icu.Number;
-using Microsoft.Maui.Graphics.Text;
+﻿using Microsoft.Maui.Graphics.Text;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,29 +15,35 @@ namespace Pizza
 
         const string BASEFONT = "Caveat-Regular";
 
-        int sizeId = 0;
         Label priceText;
         int count = 0;
         Label countInCart;
+        public int resultPrice = 0;
+        public int size = 0;
+        int dopPrice = 0;
+        int sizePrice = 0;
 
-        string namePizza;
-        string soursePizzaIco;
+        public string namePizza;
+        public string soursePizzaIco;
         string previewIngridients;
         string fullIngridients;
         string KBGU;
         Button currentSizeButton;
-        int[] sizes = new int[3];
-        int[] prices = new int[3];
-        string[] nameDops = new string[4];
-        int[] priceDops = new int[4];
-        bool[] addIngridiesFlaf = new bool[4];
+        public int[] sizes = new int[3];
+        public int[] prices = new int[3];
+        public string[] nameDops = new string[4];
+        public int[] priceDops = new int[4];
+        public bool[] addIngrid = new bool[4];
         Grid moreOfPizzaConteiner;
         SwipeView swipeView;
+        VerticalStackLayout morePizzas;
+        Grid thiSPizza;
 
         public PizzaCart(string namePiz, string sourseOnPizzaIco, string previewIngridient, string fullIngridient, string KBGU, int size1, int size2,int size3, 
             int price1, int price2, int price3, string nameDop1, string nameDop2, string nameDop3, string nameDop4, 
             int priceDop1, int priceDop2, int priceDop3, int priceDop4, VerticalStackLayout morePizzaPan, Grid moreOfPizza)
         {
+            morePizzas = morePizzaPan;
             namePizza = namePiz;
             soursePizzaIco = sourseOnPizzaIco;
             previewIngridients = previewIngridient;
@@ -59,7 +64,11 @@ namespace Pizza
             priceDops[2] = priceDop3;
             priceDops[3] = priceDop4;
             moreOfPizzaConteiner = moreOfPizza;
+            PrintPizzaCart(morePizzaPan);
+        }
 
+        void PrintPizzaCart(VerticalStackLayout pizzasConteiner)
+        {
             Grid pizza = new Grid
             {
                 RowDefinitions =
@@ -81,22 +90,25 @@ namespace Pizza
             };
             Grid pizzaCart = new Grid();
             pizzaCart.Add(pizza);
-            morePizzaPan.Add(pizzaCart);
+            pizzasConteiner.Add(pizzaCart);
+            thiSPizza = pizzaCart;
+            size = sizes[0];
 
             swipeView = new()
             {
                 Content = pizza,
             };
-            Adder(swipeView, pizzaCart, 0, 0);
+            pizzaCart.Add(swipeView);
             swipeView.SwipeStarted += SendSwipe;
             SwipeItems swipeItems = new SwipeItems();
             swipeView.LeftItems = swipeItems;
-            SwipeItem swipeItem = new SwipeItem() 
-            { 
-                IconImageSource = "sendcart", BackgroundColor = Color.FromArgb("#CFE6D6") 
+            SwipeItem swipeItem = new SwipeItem()
+            {
+                IconImageSource = "sendcart",
+                BackgroundColor = Color.FromArgb("#CFE6D6")
             };
             swipeItems.Add(swipeItem);
-            
+
             BoxView more = new BoxView
             {
                 BackgroundColor = Color.FromArgb("#517C4F"),
@@ -116,7 +128,7 @@ namespace Pizza
 
             Label previewIngridientText = new Label
             {
-                Text = previewIngridient,
+                Text = previewIngridients,
                 TextColor = Colors.White,
                 Padding = new Thickness(15, 0),
                 VerticalOptions = LayoutOptions.Start,
@@ -154,7 +166,7 @@ namespace Pizza
                 TextColor = Colors.White,
                 VerticalOptions = LayoutOptions.Start,
                 HorizontalTextAlignment = TextAlignment.Center,
-                VerticalTextAlignment= TextAlignment.Start,
+                VerticalTextAlignment = TextAlignment.Start,
                 FontFamily = BASEFONT,
                 FontSize = 18,
 
@@ -164,53 +176,53 @@ namespace Pizza
             currentSizeButton = new Button
             {
                 BackgroundColor = Color.FromArgb("#CF973A"),
-                Text = size1.ToString(),
+                Text = sizes[0].ToString(),
                 FontFamily = BASEFONT,
                 CornerRadius = 100,
-                Margin= new Thickness(0,0,0,10),
+                Margin = new Thickness(0, 0, 0, 10),
                 LineBreakMode = LineBreakMode.WordWrap,
                 FontSize = 15,
                 BorderColor = Colors.White,
                 BorderWidth = 2,
-                VerticalOptions= LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
                 HorizontalOptions = LayoutOptions.Center,
             };
-            currentSizeButton.Clicked += SizeUpdate;
+            currentSizeButton.Clicked += SizeUpdate1;
             Adder(currentSizeButton, pizza, 3, 0, 0, 0);
             Button size2Button = new Button
             {
                 BackgroundColor = Color.FromArgb("#CF973A"),
-                Text = size2.ToString(),
+                Text = sizes[1].ToString(),
                 FontFamily = BASEFONT,
                 CornerRadius = 100,
-                Margin= new Thickness(0,0,0,10),
+                Margin = new Thickness(0, 0, 0, 10),
                 LineBreakMode = LineBreakMode.WordWrap,
                 FontSize = 15,
                 BorderColor = Colors.White,
                 BorderWidth = 0,
-                VerticalOptions= LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
                 HorizontalOptions = LayoutOptions.Center,
             };
-            size2Button.Clicked += SizeUpdate;
+            size2Button.Clicked += SizeUpdate2;
             Adder(size2Button, pizza, 3, 1, 0, 0);
             Button size3Button = new Button
             {
                 BackgroundColor = Color.FromArgb("#CF973A"),
-                Text = size2.ToString(),
+                Text = sizes[2].ToString(),
                 FontFamily = BASEFONT,
                 CornerRadius = 100,
-                Margin= new Thickness(0,0,0,10),
+                Margin = new Thickness(0, 0, 0, 10),
                 LineBreakMode = LineBreakMode.WordWrap,
                 FontSize = 15,
                 BorderColor = Colors.White,
                 BorderWidth = 0,
-                VerticalOptions= LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
                 HorizontalOptions = LayoutOptions.Center,
             };
-            size3Button.Clicked += SizeUpdate;
+            size3Button.Clicked += SizeUpdate3;
             Adder(size3Button, pizza, 3, 2, 0, 0);
 
-            VerticalStackLayout lay2 = new VerticalStackLayout 
+            VerticalStackLayout lay2 = new VerticalStackLayout
             {
                 Margin = new Thickness(5),
             };
@@ -218,34 +230,65 @@ namespace Pizza
 
             Image pizzaIco = new Image
             {
-                Source = sourseOnPizzaIco,
+                Source = soursePizzaIco,
                 Margin = new Thickness(5),
             };
             lay2.Children.Add(pizzaIco);
 
             priceText = new Label
             {
-                Text = price1.ToString() + "₽ ",
                 TextColor = Colors.White,
                 HorizontalOptions = LayoutOptions.Center,
                 FontFamily = BASEFONT,
                 FontSize = 18,
             };
             lay2.Children.Add(priceText);
+            UpdatePrice(prices[0]);
+        }
+
+        private void SizeUpdate1(object? sender, EventArgs e)
+        {
+            UpdatePrice(prices[0]);
+            size = sizes[0];
+            SizeUpdate(sender, e);
+        }
+
+        private void SizeUpdate2(object? sender, EventArgs e)
+        {
+            UpdatePrice(prices[1]);
+            size = sizes[1];
+
+            SizeUpdate(sender, e);
+        }
+
+        private void SizeUpdate3(object? sender, EventArgs e)
+        {
+            UpdatePrice(prices[2]);
+            size = sizes[2];
+
+            SizeUpdate(sender, e);
         }
 
         private void SizeUpdate(object? sender, EventArgs e)
         {
             currentSizeButton.BorderWidth = 0;
             currentSizeButton = sender != null ? (Button)sender : currentSizeButton;
-            //придумать ченьть с размерами
             currentSizeButton.BorderWidth = 2;
         }
 
-        private void PizzaPan()
+        void UpdatePrice(int sizePr = 0, int dopPr = 0)
+        {
+            sizePrice = sizePr == 0 ? sizePrice : sizePr;
+            dopPrice = dopPr == 0 ? dopPrice : dopPr;
+            resultPrice = (sizePrice + dopPrice);
+            priceText.Text = (sizePrice + dopPrice).ToString() + "₽ ";
+        }
+
+        void PizzaPan()
         {
             if (!DontOpenWindows)
             {
+                morePizzas.IsVisible = false;
                 DontOpenWindows = true;
                 if (morePan == null)
                 {
@@ -309,14 +352,14 @@ namespace Pizza
 
                     Label kbguText = new Label
                     {
-                        Text = "КБЖУ" + KBGU,
+                        Text = "КБЖУ на 100г: " + KBGU,
                         TextColor = Colors.White,
                         Padding = new Thickness(5),
                         HorizontalTextAlignment = TextAlignment.Start,
                         FontFamily = BASEFONT,
                         FontSize = 20,
                     };
-                    Adder(kbguText, morePan, 2, 0, 0, 1);
+                    Adder(kbguText, morePan, 2, 0, 0, 2);
 
                     BoxView box2 = new BoxView
                     {
@@ -327,7 +370,7 @@ namespace Pizza
 
                     Label AddIngridientText = new Label
                     {
-                        Text = "Добавьте ингридиенты",
+                        Text = "Добавьте ингредиенты",
                         TextColor = Colors.White,
                         Padding = new Thickness(5),
                         HorizontalTextAlignment = TextAlignment.Center,
@@ -346,10 +389,10 @@ namespace Pizza
 
                         ColumnDefinitions =
                 {
+                    new ColumnDefinition() { Width = GridLength.Auto},
                     new ColumnDefinition(),
                     new ColumnDefinition(),
-                    new ColumnDefinition(),
-                    new ColumnDefinition(),
+                    new ColumnDefinition() { Width = GridLength.Auto},
                     new ColumnDefinition(),
                     new ColumnDefinition(),
                 },
@@ -370,20 +413,44 @@ namespace Pizza
                         };
                         Adder(dopText, dops, i < 2 ? i : i - 2, i < 2 ? 0 : 3);
                     }
-                    for (int i = 0; i < 4; i++)
+
+                    CheckBox dopCheck1 = new CheckBox
                     {
-                        CheckBox dopCheck = new CheckBox
-                        {
-                            Color = Color.FromArgb("#35916A"),
-                            HorizontalOptions = LayoutOptions.End,
-                        };
-                        Adder(dopCheck, dops, (i < 2 ? i : i - 2), (i < 2 ? 1 : 4));
-                    }
+                        Color = Color.FromArgb("#35916A"),
+                        HorizontalOptions = LayoutOptions.End,
+                    };
+                    dopCheck1.CheckedChanged += dop1;
+                    Adder(dopCheck1, dops, 0, 1);
+
+                    CheckBox dopCheck2 = new CheckBox
+                    {
+                        Color = Color.FromArgb("#35916A"),
+                        HorizontalOptions = LayoutOptions.End,
+                    };
+                    dopCheck2.CheckedChanged += dop2;
+                    Adder(dopCheck2, dops, 1, 1);
+
+                    CheckBox dopCheck3 = new CheckBox
+                    {
+                        Color = Color.FromArgb("#35916A"),
+                        HorizontalOptions = LayoutOptions.End,
+                    };
+                    dopCheck3.CheckedChanged += dop3;
+                    Adder(dopCheck3, dops, 0, 4);
+
+                    CheckBox dopCheck4 = new CheckBox
+                    {
+                        Color = Color.FromArgb("#35916A"),
+                        HorizontalOptions = LayoutOptions.End,
+                    };
+                    dopCheck4.CheckedChanged += dop4;
+                    Adder(dopCheck4, dops, 1, 4);
+
                     for (int i = 0; i < 4; i++)
                     {
                         Label dopText = new Label
                         {
-                            Text = priceDops[i].ToString(),
+                            Text = "+" + priceDops[i].ToString() + "₽ ",
                             TextColor = Colors.White,
                             Padding = new Thickness(5),
                             HorizontalTextAlignment = TextAlignment.Center,
@@ -412,6 +479,34 @@ namespace Pizza
             }
         }
 
+        private void dop1(object? sender, CheckedChangedEventArgs e)
+        {
+            dopPrice = ((CheckBox)sender).IsChecked == false ? dopPrice - priceDops[0] : dopPrice + priceDops[0];
+            addIngrid[0] = !addIngrid[0];
+            UpdatePrice(0, dopPrice);
+        }
+        private void dop2(object? sender, CheckedChangedEventArgs e)
+        {
+            dopPrice = ((CheckBox)sender).IsChecked == false ? dopPrice - priceDops[1] : dopPrice + priceDops[1];
+            addIngrid[1] = !addIngrid[1];
+            UpdatePrice(0, dopPrice);
+
+        }
+        private void dop3(object? sender, CheckedChangedEventArgs e)
+        {
+            dopPrice = ((CheckBox)sender).IsChecked == false ? dopPrice - priceDops[2] : dopPrice + priceDops[2];
+            addIngrid[2] = !addIngrid[2];
+            UpdatePrice(0, dopPrice);
+
+        }
+        private void dop4(object? sender, CheckedChangedEventArgs e)
+        {
+            dopPrice = ((CheckBox)sender).IsChecked == false ? dopPrice - priceDops[3] : dopPrice + priceDops[3];
+            addIngrid[3] = !addIngrid[3];
+            UpdatePrice(0, dopPrice);
+
+        }
+
         private void By(object? sender, EventArgs e)
         {
             count++;
@@ -420,7 +515,10 @@ namespace Pizza
             {
                 morePan.IsVisible = false;
             }
+            morePizzas.IsVisible = true;
             DontOpenWindows = false;
+
+            Cart.AddCart((PizzaCart)this.MemberwiseClone());
         }
 
         private void SendBut(object? sender, EventArgs e)
@@ -436,6 +534,13 @@ namespace Pizza
         }
 
         private async void SendSwipe(object? sender, EventArgs e)
+        {
+            PizzaPan();
+            await Task.Delay(100);
+            swipeView.Close();
+        }
+
+        private async void DelSwipe(object? sender, EventArgs e)
         {
             PizzaPan();
             await Task.Delay(100);

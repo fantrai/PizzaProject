@@ -2,11 +2,60 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Pizza.CartPage"
-             Title="CartPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="CartPage"
+             BackgroundColor="#1E1E1E">
+
+    <Grid>
+        <Grid x:Name="Ready" VerticalOptions="Center" IsVisible="false">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <BoxView BackgroundColor="#CF973A"/>
+            <BoxView BackgroundColor="#517C4F" Grid.RowSpan="3" Grid.Row="1"/>
+            <Label Text="Заказ оформлен! " HorizontalOptions="Center" TextColor="White" FontFamily="Caveat-Regular" FontSize="30"/>
+            <Label Text="Наш мененджер перезвонит Вам по номеру, указанному в профиле для подтвержения заказа! " 
+                   HorizontalOptions="Center" Grid.Row="1" Margin="20" HorizontalTextAlignment="Center"
+                   TextColor="White" FontFamily="Caveat-Regular" FontSize="22"/>
+            <Image Source="sendcart" HorizontalOptions="Center" Grid.Row="2"/>
+            <Button Clicked="Good" Text="Отлично!" HorizontalOptions="Center" Grid.Row="3" Margin="10" BackgroundColor="#CF973A"/>
+        </Grid>
+        
+        <Grid x:Name="Error" VerticalOptions="Center" IsVisible="false">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <BoxView BackgroundColor="#c45454"/>
+            <BoxView BackgroundColor="#517C4F" Grid.RowSpan="3" Grid.Row="1"/>
+            <Label Text="Ошибка! " HorizontalOptions="Center" TextColor="White" FontFamily="Caveat-Regular" FontSize="30"/>
+            <Label Text="Ваша корзина пуста! :( " 
+                   HorizontalOptions="Center" Grid.Row="1" Margin="20" HorizontalTextAlignment="Center"
+                   TextColor="White" FontFamily="Caveat-Regular" FontSize="22"/>
+            <Button Clicked="Err" Text="Продолжить покупки" HorizontalOptions="Center" Grid.Row="3" Margin="10" BackgroundColor="#CF973A"/>
+        </Grid>
+
+        <Grid x:Name="el">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="0.05*"/>
+            </Grid.RowDefinitions>
+
+            <ScrollView>
+                <Grid x:Name="pizzaPan">
+
+                    <!--список пицц-->
+                    <VerticalStackLayout Padding="0, 20" Spacing="20" x:Name="Pizzas">
+                    </VerticalStackLayout>
+                </Grid>
+            </ScrollView>
+            <Button Clicked="Send" x:Name="SendBut" Text="Заказать" Grid.Row="1" Background="#CFE6D6" TextColor="Black" Padding="-100"/>
+        </Grid>
+
+    </Grid>
 </ContentPage>

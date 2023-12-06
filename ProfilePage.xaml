@@ -2,11 +2,139 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Pizza.ProfilePage"
-             Title="ProfilePage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="ProfilePage"
+             BackgroundColor="#1E1E1E">
+
+    <Grid>
+        <Grid x:Name="Ready" VerticalOptions="Center" IsVisible="false">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <BoxView BackgroundColor="#CF973A"/>
+            <BoxView BackgroundColor="#517C4F" Grid.RowSpan="3" Grid.Row="1"/>
+            <Label Text="Данные сохранены! " HorizontalOptions="Center" TextColor="White" FontFamily="Caveat-Regular" FontSize="30"/>
+            <Label Text="Ваши персональные данные сохранены и будут использоваться при оформлении заказов " 
+                   HorizontalOptions="Center" Grid.Row="1" Margin="20" HorizontalTextAlignment="Center"
+                   TextColor="White" FontFamily="Caveat-Regular" FontSize="22"/>
+            <Button Clicked="Saved" Text="Отлично!" HorizontalOptions="Center" Grid.Row="3" Margin="10" BackgroundColor="#CF973A"/>
+        </Grid>
+
+        <Grid x:Name="Error" VerticalOptions="Center" IsVisible="false">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <BoxView BackgroundColor="#c45454"/>
+            <BoxView BackgroundColor="#517C4F" Grid.RowSpan="3" Grid.Row="1"/>
+            <Label Text="Ошибка! " HorizontalOptions="Center" TextColor="White" FontFamily="Caveat-Regular" FontSize="30"/>
+            <Label Text="Не заполнены ключевые поля :( " 
+                   HorizontalOptions="Center" Grid.Row="1" Margin="20" HorizontalTextAlignment="Center"
+                   TextColor="White" FontFamily="Caveat-Regular" FontSize="22"/>
+            <Button Clicked="Err" Text="Исправить" HorizontalOptions="Center" Grid.Row="3" Margin="10" BackgroundColor="#CF973A"/>
+        </Grid>
+
+        <VerticalStackLayout x:Name="El" IsVisible="true">
+            <Border BackgroundColor="#517C4F"
+         HorizontalOptions="Fill"
+         StrokeThickness="2"
+         StrokeShape="RoundRectangle 20"
+         Stroke="#517C4F"
+         Padding="16,8">
+
+                <VerticalStackLayout Spacing="10">
+                    <Border BackgroundColor="Transparent"
+                 HorizontalOptions="Fill"
+                 Stroke="#CFE6D6"
+                 StrokeThickness="2"
+                 StrokeShape="RoundRectangle 15"
+                 Padding="10, 1">
+                        <Entry x:Name="Name" Completed="NewName" PlaceholderColor="#A1B9A9" Placeholder="Имя*" HorizontalOptions="Fill"/>
+                    </Border>
+                    <Border BackgroundColor="Transparent"
+                 HorizontalOptions="Fill"
+                 Stroke="#CFE6D6"
+                 StrokeThickness="2"
+                 StrokeShape="RoundRectangle 15"
+                 Padding="10, 1">
+                        <Entry x:Name="Phone" Completed="NewTelephone" Keyboard="Telephone" PlaceholderColor="#A1B9A9" Placeholder="Телефон*" HorizontalOptions="Fill"/>
+                    </Border>
+                    <Border BackgroundColor="Transparent"
+                  HorizontalOptions="Fill"
+                  Stroke="#CFE6D6"
+                  StrokeThickness="2"
+                  StrokeShape="RoundRectangle 15"
+                  Padding="10, 1">
+                        <Entry x:Name="Email" Completed="NewEmail" Keyboard="Email" PlaceholderColor="#A1B9A9" Placeholder="E-mail" HorizontalOptions="Fill"/>
+                    </Border>
+                    <Border BackgroundColor="Transparent"
+                  HorizontalOptions="Fill"
+                  Stroke="#CFE6D6"
+                  StrokeThickness="2"
+                  StrokeShape="RoundRectangle 15"
+                  Padding="10, 1">
+                        <Entry x:Name="Data" Completed="NewData" PlaceholderColor="#A1B9A9" Placeholder="Дата рождения" HorizontalOptions="Fill"/>
+                    </Border>
+                </VerticalStackLayout>
+
+            </Border>
+
+            <Border BackgroundColor="#517C4F"
+  HorizontalOptions="Fill"
+             Margin="0, 1"
+  StrokeThickness="2"
+  StrokeShape="RoundRectangle 20"
+  Stroke="#517C4F"
+  Padding="16,8">
+
+                <VerticalStackLayout Spacing="10">
+                    <Border BackgroundColor="Transparent"
+          HorizontalOptions="Fill"
+          Stroke="#CFE6D6"
+          StrokeThickness="2"
+          StrokeShape="RoundRectangle 15"
+          Padding="10, 1">
+                        <Entry x:Name="Login" Completed="NewLogin" PlaceholderColor="#A1B9A9" Placeholder="Логин*" HorizontalOptions="Fill"/>
+                    </Border>
+                    <Border BackgroundColor="Transparent"
+          HorizontalOptions="Fill"
+          Stroke="#CFE6D6"
+          StrokeThickness="2"
+          StrokeShape="RoundRectangle 15"
+          Padding="10, 1">
+                        <Entry x:Name="Parol" Completed="NewParol" IsPassword="True" PlaceholderColor="#A1B9A9" Placeholder="Пароль*" HorizontalOptions="Fill"/>
+                    </Border>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <CheckBox CheckedChanged="PolCof" Color="#CF973A"/>
+                        <Label HorizontalTextAlignment="Start" VerticalOptions="Center" LineBreakMode="WordWrap" 
+                               VerticalTextAlignment="Center"
+                           Text="Я ознакомлен и согласен с политикой конфидецериальности" Grid.Column="1"/>
+                        <CheckBox CheckedChanged="PrepPersData" Color="#CF973A" Grid.Row="1"/>
+                        <Label Grid.Column="1" Grid.Row="1" HorizontalTextAlignment="Start" LineBreakMode="WordWrap" 
+                               VerticalTextAlignment="Center"
+                           Text="Согласен на обработку персональных данных" HorizontalOptions="FillAndExpand"/>
+                    </Grid>
+                </VerticalStackLayout>
+
+            </Border>
+            <Button x:Name="SaveBut" Clicked="SaveData" IsEnabled="False" BackgroundColor="#CF973A" Text="Сохранить" TextColor="#ffffff" CornerRadius="18"/>
+
+        </VerticalStackLayout>
+    </Grid>
+
 </ContentPage>

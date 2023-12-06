@@ -13,7 +13,7 @@
 
     <Shell.TitleView>
         <HorizontalStackLayout>
-            <Label Text="Время пиццы" FontFamily="BadScript" TextColor="White" VerticalOptions="Center" Margin="10, 0, 0 , 0" FontSize="24"/>
+            <Label Text="Легупицца" FontFamily="BadScript" TextColor="White" VerticalOptions="Center" Margin="10, 0, 0 , 0" FontSize="24"/>
             <Image Source="piicw" Margin="12"/>
         </HorizontalStackLayout>
     </Shell.TitleView>

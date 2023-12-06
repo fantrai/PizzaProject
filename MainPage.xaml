@@ -3,19 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Pizza.MainPage"
              BackgroundColor="#1E1E1E">
-    
-    <ScrollView>
-        <Grid x:Name="pizzaPan">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition Height="0.05*"/>
-            </Grid.RowDefinitions>
 
-            <!--список пицц-->
-            <VerticalStackLayout Padding="0, 20" x:Name="Pizzas">
-            </VerticalStackLayout>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <!--<RowDefinition Height="0.05*"/>-->
+        </Grid.RowDefinitions>
+        <ScrollView>
+            <Grid x:Name="pizzaPan">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="0.05*"/>
+                </Grid.RowDefinitions>
 
-            <Button Text="Повторить заказ?" Grid.Row="1" Background="#CFE6D6" TextColor="Black" Padding="-100"/>
-        </Grid>
-    </ScrollView>
+                <!--список пицц-->
+                <VerticalStackLayout Padding="0, 20" Spacing="20" x:Name="Pizzas">
+                </VerticalStackLayout>
+            </Grid>
+        </ScrollView>
+        <!--<Button Text="Повторить заказ?" Grid.Row="1" Background="#CFE6D6" TextColor="Black" Padding="-100"/>-->
+    </Grid>
 </ContentPage>

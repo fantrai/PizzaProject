@@ -2,11 +2,88 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Pizza.MapPage"
-             Title="MapPage">
+             Title="MapPage"
+             BackgroundColor="#1E1E1E">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="24"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+
+            </Grid.ColumnDefinitions>
+
+
+            <BoxView Grid.Row="1"
+Background="#1e1e1e"
+Grid.Column="1"
+Grid.ColumnSpan="2"
+Grid.RowSpan="5"
+Color="#517C4F"
+CornerRadius="9"
+WidthRequest="316"
+HeightRequest="318"/>
+
+            <Button Grid.Row="1" Clicked="Map"
+Grid.ColumnSpan="4"
+
+BackgroundColor="#CF973A"
+Margin="50, 20, 50, 9"
+FontFamily="Inter"
+FontSize="15"
+HorizontalOptions="Fill"
+LineBreakMode="WordWrap"
+Text="Открыть список &#xA; предприятий на карте"/>
+
+            <Label Grid.Row="2"
+FontFamily="Inter"
+FontSize="15"
+Text="Мы в соц. сетях:"
+Grid.Column="1"
+Grid.ColumnSpan="2"
+HorizontalOptions="Center"/>
+
+            <HorizontalStackLayout Grid.Row="3" Grid.ColumnSpan="4" Spacing="16" HorizontalOptions="Center" >
+                <ImageButton Clicked="Bk"
+
+WidthRequest="120"
+Aspect="AspectFit"
+BackgroundColor="#CF973A"
+Source="vkico.png"
+CornerRadius="9"
+Margin="10, 12, 10, 30"
+Padding="20"/>
+
+                <ImageButton Clicked="Inst"
+WidthRequest="120"
+BackgroundColor="#CF973A"
+Source="instico.png"
+CornerRadius="9"
+Margin="10, 12, 10, 30"
+Padding="20"/>
+            </HorizontalStackLayout>
+
+            <Label Grid.Row="4"
+FontFamily="Inter"
+FontSize="15"
+HorizontalTextAlignment="Center"
+Text="Или звоните по номеру
++7(900 288-93-93)"
+Grid.Column="1"
+Grid.ColumnSpan="2"
+HorizontalOptions="Center"/>
+
+        </Grid>
+
     </VerticalStackLayout>
 </ContentPage>

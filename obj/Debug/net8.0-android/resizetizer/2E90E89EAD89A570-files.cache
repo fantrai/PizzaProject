@@ -4,11 +4,15 @@ obj\Debug\net8.0-android\resizetizer\r\drawable\bgr1.png
 obj\Debug\net8.0-android\resizetizer\r\drawable\cart.png
 obj\Debug\net8.0-android\resizetizer\r\drawable\cartw.png
 obj\Debug\net8.0-android\resizetizer\r\drawable\dotnet_bot.png
+obj\Debug\net8.0-android\resizetizer\r\drawable\instico.png
 obj\Debug\net8.0-android\resizetizer\r\drawable\map.png
 obj\Debug\net8.0-android\resizetizer\r\drawable\piic.png
 obj\Debug\net8.0-android\resizetizer\r\drawable\piicw.png
 obj\Debug\net8.0-android\resizetizer\r\drawable\pizza.png
+obj\Debug\net8.0-android\resizetizer\r\drawable\pizza2.png
+obj\Debug\net8.0-android\resizetizer\r\drawable\pizza3.png
 obj\Debug\net8.0-android\resizetizer\r\drawable\sendcart.png
+obj\Debug\net8.0-android\resizetizer\r\drawable\vkico.png
 obj\Debug\net8.0-android\resizetizer\r\mipmap-anydpi-v26\appicon.xml
 obj\Debug\net8.0-android\resizetizer\r\mipmap-anydpi-v26\appicon_round.xml
 obj\Debug\net8.0-android\resizetizer\r\mipmap-hdpi\appicon.png

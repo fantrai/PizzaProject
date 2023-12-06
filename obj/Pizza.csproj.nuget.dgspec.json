@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nikit\\Desktop\\pizza app\\PizzaProjectttttttttt\\Pizza.csproj": {}
+    "C:\\Users\\fantrai\\Desktop\\MAUI\\Pizza\\PizzaProject\\Pizza.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nikit\\Desktop\\pizza app\\PizzaProjectttttttttt\\Pizza.csproj": {
-      "version": "1.0.0",
+    "C:\\Users\\fantrai\\Desktop\\MAUI\\Pizza\\PizzaProject\\Pizza.csproj": {
+      "version": "1.1.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nikit\\Desktop\\pizza app\\PizzaProjectttttttttt\\Pizza.csproj",
+        "projectUniqueName": "C:\\Users\\fantrai\\Desktop\\MAUI\\Pizza\\PizzaProject\\Pizza.csproj",
         "projectName": "Pizza",
-        "projectPath": "C:\\Users\\nikit\\Desktop\\pizza app\\PizzaProjectttttttttt\\Pizza.csproj",
-        "packagesPath": "C:\\Users\\nikit\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nikit\\Desktop\\pizza app\\PizzaProjectttttttttt\\obj\\",
+        "projectPath": "C:\\Users\\fantrai\\Desktop\\MAUI\\Pizza\\PizzaProject\\Pizza.csproj",
+        "packagesPath": "C:\\Users\\fantrai\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fantrai\\Desktop\\MAUI\\Pizza\\PizzaProject\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\nikit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\fantrai\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

@@ -392,3 +392,6 @@ C:\Users\nikit\Desktop\pizza app\PizzaProjectttttttttt\obj\Release\net8.0-ios\io
 C:\Users\nikit\Desktop\pizza app\PizzaProjectttttttttt\obj\Release\net8.0-ios\iossimulator-x64\Pizza.dll
 C:\Users\nikit\Desktop\pizza app\PizzaProjectttttttttt\obj\Release\net8.0-ios\iossimulator-x64\refint\Pizza.dll
 C:\Users\nikit\Desktop\pizza app\PizzaProjectttttttttt\obj\Release\net8.0-ios\iossimulator-x64\Pizza.pdb
+C:\Users\fantrai\Desktop\MAUI\Pizza\PizzaProject\obj\Release\net8.0-ios\iossimulator-x64\resizetizer\sp\mainspl_481E5755459A56EAA52CB9DFED655ED34D6F8AFE26579D8EF09F5687D4FF58CE.png
+C:\Users\fantrai\Desktop\MAUI\Pizza\PizzaProject\obj\Release\net8.0-ios\iossimulator-x64\resizetizer\sp\mainspl_481E5755459A56EAA52CB9DFED655ED34D6F8AFE26579D8EF09F5687D4FF58CE@2x.png
+C:\Users\fantrai\Desktop\MAUI\Pizza\PizzaProject\obj\Release\net8.0-ios\iossimulator-x64\resizetizer\sp\mainspl_481E5755459A56EAA52CB9DFED655ED34D6F8AFE26579D8EF09F5687D4FF58CE@3x.png

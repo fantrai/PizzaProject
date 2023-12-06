@@ -1,1 +1,1 @@
-C:\Users\fantrai\Desktop\MAUI\Pizza\PizzaProject\Pizza.csproj;x64
+C:\Users\nikit\Desktop\pizza app\PizzaProjectttttttttt\Pizza.csproj;x64

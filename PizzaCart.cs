@@ -154,6 +154,8 @@ namespace Pizza
             };
             Adder(lay, pizza, 0, 4, 4, 0);
 
+            
+
             Image cartw = new Image
             {
                 Source = "cartw",
@@ -343,6 +345,18 @@ namespace Pizza
                     };
                     Adder(description, morePan, 1, 0);
 
+                    Button closeBut = new Button
+                    {
+                        Text = "<",
+                        VerticalOptions = LayoutOptions.Start,
+                        HorizontalOptions = LayoutOptions.Start,
+                        FontFamily = BASEFONT,
+                        FontSize = 28,
+                        BackgroundColor = Color.FromArgb("#CF973A"),
+                    };
+                    closeBut.Clicked += close;
+                    Adder(closeBut, morePan, 0, 0);
+
                     Image pizzaIco = new Image
                     {
                         Source = soursePizzaIco,
@@ -479,6 +493,16 @@ namespace Pizza
             }
         }
 
+        private void close(object? sender, EventArgs e)
+        {
+            if (morePan != null)
+            {
+                morePan.IsVisible = false;
+            }
+            morePizzas.IsVisible = true;
+            DontOpenWindows = false;
+        }
+
         private void dop1(object? sender, CheckedChangedEventArgs e)
         {
             dopPrice = ((CheckBox)sender).IsChecked == false ? dopPrice - priceDops[0] : dopPrice + priceDops[0];
@@ -509,8 +533,6 @@ namespace Pizza
 
         private void By(object? sender, EventArgs e)
         {
-            count++;
-            countInCart.Text = count.ToString();
             if (morePan != null)
             {
                 morePan.IsVisible = false;
